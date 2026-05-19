@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe | Flavour Fusion</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/recipe.css">
+</head>
+<body>
+    <!-- FLAVOUR FUSION LOADER -->
+    <div id="fusion-loader">
+        <div class="eating-container">
+            <div class="pac-man"></div>
+            <div class="food food-1"></div>
+            <div class="food food-2"></div>
+        </div>
+        <div class="loader-text">COOKING...</div>
+    </div>
+    
+    <div class="background-overlay"></div>
+    <nav class="top-nav">
+        <div class="logo">
+            <img src="/Logo/logo.png" height="35px" width="50px" alt="logo">
+             Flavour Fusion
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="favorites.html">Favorites ❤️</a></li>
+            <li><a href="order.html">Order Online 🛵</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+            <li><button id="themeToggleBtn">Light Mode</button></li>
+        </ul>
+    </nav>
+
+    <div class="glass-panel" style="margin: 3rem auto; padding: 3rem; max-width: 1000px;">
+        <a href="index.html" style="color: #ff9f43; text-decoration: none; font-weight: bold; font-size: 1.1rem;">← Back to Search</a>
+        
+        <h1 id="dynamicTitle" style="text-align: center; margin-top: 1rem; color: #ff9f43; font-size: 3rem;">Loading...</h1>
+        
+        <div class="video-placeholder" style="margin-top: 2rem;">
+            <video id="vid" height="420px" width="780px" controls style="border-radius: 10px; max-height: 400px; background: #000;"></video>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; border: 1px solid rgba(255,159,67,0.3);">
+            <label style="color: #ff9f43; font-weight: bold; font-size: 1.2rem;">Adjust Servings:</label>
+            <input type="number" id="servingInput" value="2" min="1" style="width: 70px; padding: 0.5rem; border-radius: 8px; border: none; font-size: 1.2rem; text-align: center; font-weight: bold;">
+            <span style="color: #e2e8f0; font-style: italic;">(Ingredient amounts will calculate automatically)</span>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 3rem;">
+            <div style="flex: 1; min-width: 300px; background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 15px;">
+                <h2 style="color: #ff9f43; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Ingredients</h2>
+                
+                <ul id="dynamicIngredients" style="line-height: 2; font-size: 1.1rem; padding-left: 1.5rem; text-transform: capitalize;">
+                </ul>
+            </div>
+            
+            <div style="flex: 1; min-width: 300px; background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 15px;">
+                <h2 style="color: #ff9f43; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Instructions</h2>
+                <ol style="line-height: 2; font-size: 1.1rem; padding-left: 1.5rem;">
+                    <li>Prepare all ingredients as listed above.</li>
+                    <li>Heat a pan or pot over medium heat with a little oil or butter.</li>
+                    <li>Combine the ingredients and cook thoroughly until flavors blend.</li>
+                    <li>Serve hot and enjoy your Flavour Fusion creation!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer glass-panel">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>🔥 Flavour Fusion</h2>
+                <p>Bringing authentic recipes, quick snacks, and rich desserts straight to your screen. Enter your ingredients, and let's start cooking!</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="favorites.html">My Favorites</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/flavourfusion_chitkara/" target="_blank">📸 Instagram</a>
+                    <a href="mailto:flavourfusion.chitkara@gmail.com" target="_blank">📧 E-mail</a>
+                    <a href="https://www.facebook.com/share/1RVPqSEqEy/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Flavour Fusion. Built with ❤️ by Prince Dhillon, Piyush Verma, and Paras Walia.</p>
+        </div>
+    </footer>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/theme.js"></script>
+    
+<script>
+        // Wrapping everything in a Try/Catch block to catch silent crashes
+        try {
+            // Check if data.js successfully loaded
+            if (typeof recipes === 'undefined') {
+                document.getElementById('dynamicTitle').textContent = "Error: data.js is missing!";
+                console.error("Could not find the recipes array. Check your data.js file path.");
+            } else {
+                const urlParams = new URLSearchParams(window.location.search);
+                const recipeId = urlParams.get('id');
+                // Find the recipe in the database
+                const matchedRecipe = recipes.find(r => r.id === recipeId);
+
+                if (matchedRecipe) {
+                    // 1. Update Title
+                    document.getElementById('dynamicTitle').textContent = matchedRecipe.title;
+                    document.title = matchedRecipe.title + " | Flavour Fusion";
+
+                    // 2. THE VIDEO LOGIC (Safely inside the block now!)
+                    const videoElement = document.getElementById('vid');
+                    const videoContainer = document.querySelector('.video-placeholder');
+
+                    if (matchedRecipe.videoLink) {
+                        videoElement.src = matchedRecipe.videoLink;
+                        videoElement.load(); // Forces the browser to load the new file
+                        videoContainer.style.border = "none";
+                        videoContainer.style.background = "transparent";
+                    } else {
+                        // Hide the video box if no video is linked in data.js
+                        videoContainer.style.display = 'none';
+                    }
+
+                    // 3. Update Ingredients with Calculator Spans
+                    const listContainer = document.getElementById('dynamicIngredients');
+                    matchedRecipe.ingredients.forEach(ing => {
+                        const li = document.createElement('li');
+                        
+                        // Formats beautifully: "250 grams Paneer (cubed)"
+                        li.innerHTML = `
+                            <span class="amount" data-base="${ing.amount}" style="font-weight: bold; color: #ffb86c;">
+                                ${ing.amount}
+                            </span> 
+                            <span style="color: #e2e8f0; font-style: italic; margin-right: 5px;">${ing.unit}</span> 
+                            ${ing.name}
+                        `;
+                        listContainer.appendChild(li);
+                    });
+
+                    // 4. Calculator Math Logic
+                    const servingInput = document.getElementById('servingInput');
+                    const baseServings = 2; 
+
+                    if (servingInput) {
+                        servingInput.addEventListener('input', (e) => {
+                            let newServings = e.target.value;
+                            if(newServings < 1) return; 
+
+                            const amounts = document.querySelectorAll('.amount');
+                            amounts.forEach(span => {
+                                let baseAmount = parseFloat(span.getAttribute('data-base'));
+                                let calculatedAmount = (baseAmount / baseServings) * newServings;
+                                span.textContent = calculatedAmount % 1 === 0 ? calculatedAmount : calculatedAmount.toFixed(1);
+                            });
+                        });
+                    }
+                } else {
+                    document.getElementById('dynamicTitle').textContent = "Recipe Not Found!";
+                }
+            }
+        } catch (error) {
+            document.getElementById('dynamicTitle').textContent = "Script Error! Check Console.";
+            console.error("The script crashed:", error);
+        }
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('fusion-loader');
+            if (loader) {
+                loader.classList.add('loader-hidden');
+                setTimeout(() => {
+                    loader.remove();
+                }, 600);
+            }
+        });
+    </script>
+</body>
+</html>
