@@ -1,0 +1,63 @@
+.top-nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1.5rem 2rem; 
+    background: rgba(0, 0, 0, 0.6);
+    
+    /* THE FIX: Constraints and centering */
+    max-width: 1200px;
+    margin: 0 auto; 
+    
+    /* THE STYLE: Rounded bottom corners and borders */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    border-radius: 0 0 20px 20px; 
+}
+.logo { font-size: 1.8rem; font-weight: 600; color: #ff9f43; }
+.nav-links { display: flex; gap: 2rem; list-style: none; position: relative; }
+.nav-links a { text-decoration: none; color: #e2e8f0; transition: 0.3s; padding-bottom: 0.3rem;}
+.nav-links a:hover, .nav-links a.active { color: #ff9f43; border-bottom: 2px solid #ff9f43; }
+
+/* --- Premium Theme Toggle Button (Text Version) --- */
+#themeToggleBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px; /* Pill shape instead of circle */
+    padding: 0.5rem 1.2rem; /* Gives the text room to breathe */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 1rem;
+    
+    /* Smooth bounce transition */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect: Bounce and Glow (No rotation for wide buttons) */
+#themeToggleBtn:hover {
+    background: rgba(255, 159, 67, 0.2);
+    border-color: #ff9f43;
+    color: #ff9f43; /* Changes text to orange on hover */
+    transform: translateY(-4px); /* Just moves straight up */
+    box-shadow: 0 8px 20px rgba(255, 159, 67, 0.4);
+}
+
+/* --- Light Mode Adjustments for the Button --- */
+body.light-mode #themeToggleBtn {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #111; /* Dark text for light mode */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode #themeToggleBtn:hover {
+    background: rgba(255, 159, 67, 0.15);
+    border-color: #ff9f43;
+    color: #d35400; /* Darker orange text for contrast */
+    box-shadow: 0 8px 20px rgba(255, 159, 67, 0.25);
+}

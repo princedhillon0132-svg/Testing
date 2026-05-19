@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #ff9f43; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #ffb86c; }
+::selection { background: #ff9f43; color: white; }
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2000');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    color: #fff; min-height: 100vh;
+}
+
+/* THE BACKGROUND FIX: Changed from 0.75 (very dark) to 0.35 (bright and clear) */
+.background-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* THE SWEET SPOT: 0.5 gives a perfect, subtle fade */
+    background: rgba(0, 0, 0, 0.55); 
+    
+    z-index: -1; 
+    backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);
+}
+
+.bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    z-index: -2; 
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); border-radius: 15px;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Footer Styles --- */
+.site-footer {
+    margin-top: 5rem;
+    border-radius: 20px 20px 0 0; 
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding: 4rem 5% 1.5rem;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-brand { flex: 2; min-width: 250px; }
+.footer-brand h2 { color: #ff9f43; font-size: 1.8rem; margin-bottom: 1rem; }
+.footer-brand p { color: #e2e8f0; max-width: 400px; line-height: 1.6; }
+
+.footer-links, .footer-social { flex: 1; min-width: 150px; }
+.footer-links h3, .footer-social h3 { color: #ff9f43; margin-bottom: 1.2rem; font-size: 1.3rem; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a, .social-icons a { color: #cbd5e1; text-decoration: none; transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
+.footer-links a:hover, .social-icons a:hover { color: #ff9f43; transform: translateX(5px); }
+
+.social-icons { display: flex; flex-direction: column; gap: 1rem; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 159, 67, 0.3); color: #94a3b8; font-size: 0.95rem; max-width: 1200px; margin: 0 auto; }
+
+/* --- Order Delivery Buttons --- */
+.order-btn {
+    display: inline-block;
+    color: white !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+.order-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   1. PREMIUM THEME BUTTON STYLES
+   ========================================= */
+#themeToggleBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px; 
+    padding: 0.5rem 1.2rem; 
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#themeToggleBtn:hover {
+    background: rgba(255, 159, 67, 0.2);
+    border-color: #ff9f43;
+    color: #ff9f43; 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 20px rgba(255, 159, 67, 0.4); 
+}
+
+/* =========================================
+   2. LIGHT MODE COLOR OVERRIDES
+   ========================================= */
+body.light-mode { background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?q=80&w=2000'); color: #111; }
+body.light-mode .background-overlay { background: rgba(255, 255, 255, 0.85); }
+body.light-mode .glass-panel, body.light-mode .top-nav, body.light-mode .site-footer {
+    background: rgba(255, 255, 255, 0.65); border-color: rgba(0, 0, 0, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+body.light-mode p, body.light-mode .nav-links a, body.light-mode .card-text p { color: #333 !important; }
+body.light-mode .recipe-card h2 { color: #d35400; }
+body.light-mode .input-box, body.light-mode .fridge-input-wrapper { background: rgba(255, 255, 255, 0.9); color: #111; border-color: #ccc; }
+body.light-mode .chip { color: #333; border-color: #999; background: rgba(255, 255, 255, 0.5); }
+body.light-mode .chip:hover, body.light-mode .chip.active { background: #ff9f43; color: #111; border-color: #ff9f43; }
+body.light-mode #themeToggleBtn { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.2); color: #111; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+body.light-mode #themeToggleBtn:hover { background: rgba(255, 159, 67, 0.15); border-color: #ff9f43; color: #d35400; box-shadow: 0 8px 20px rgba(255, 159, 67, 0.25); }
+body.light-mode .footer-brand p, body.light-mode .footer-links a, body.light-mode .social-icons a, body.light-mode .footer-bottom { color: #444 !important; }
+body.light-mode .footer-brand h2, body.light-mode .footer-links h3, body.light-mode .footer-social h3 { color: #d35400; }
+body.light-mode .footer-links a:hover, body.light-mode .social-icons a:hover { color: #ff9f43 !important; }
+
+/* =========================================
+   3. CUSTOM PAGE LOADER (CLEANED UP)
+   ========================================= */
+#fusion-loader {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: none !important; 
+    backdrop-filter: blur(4px) !important; 
+    -webkit-backdrop-filter: blur(4px) !important;
+    z-index: 99999; 
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.eating-container {
+    position: relative; width: 180px; height: 60px; margin-bottom: 20px;
+}
+
+.pac-man {
+    position: absolute; left: 0; width: 60px; height: 60px; z-index: 2;
+    animation: lunge 0.6s infinite ease-in-out alternate;
+}
+.pac-man::before, .pac-man::after {
+    content: ''; position: absolute; width: 60px; height: 30px; background: #ff9f43; left: 0;
+}
+.pac-man::before { top: 0; border-radius: 60px 60px 0 0; transform-origin: bottom center; animation: chompTop 0.3s infinite alternate ease-in-out; }
+.pac-man::after { bottom: 0; border-radius: 0 0 60px 60px; transform-origin: top center; animation: chompBot 0.3s infinite alternate ease-in-out; }
+
+.food {
+    position: absolute; top: 14px; right: -30px; font-size: 28px; 
+    background: transparent !important; width: auto !important; height: auto !important;
+    animation: slideBurger 1.2s infinite linear; z-index: 1;
+}
+.food::before { content: '🍔'; }
+.food-1 { animation-delay: 0s; }
+.food-2 { animation-delay: 0.6s; } 
+
+@keyframes lunge { 0% { transform: translateX(0); } 100% { transform: translateX(30px); } }
+@keyframes chompTop { 0% { transform: rotate(-45deg); } 100% { transform: rotate(0deg); } }
+@keyframes chompBot { 0% { transform: rotate(45deg); } 100% { transform: rotate(0deg); } }
+@keyframes slideBurger { 0% { transform: translateX(0); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(-150px); opacity: 0; } }
+
+.loader-text { color: #ff9f43; font-size: 1.2rem; font-weight: bold; letter-spacing: 3px; animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.loader-hidden { opacity: 0; visibility: hidden; }

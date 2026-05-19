@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Fusion</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/recipe.css">
+    <link rel="icon" href="/Favicon/favicon.png">
+</head>
+<body>
+    <body>
+    <!-- FLAVOUR FUSION LOADER -->
+    <div id="fusion-loader">
+        <div class="eating-container">
+            <div class="pac-man"></div>
+            <div class="food food-1"></div>
+            <div class="food food-2"></div>
+        </div>
+        <div class="loader-text">COOKING...</div>
+    </div>
+    
+    <!-- The rest of your website content starts here... -->
+    <div class="background-overlay"></div>
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="/background.mp4" type="video/mp4">
+    </video>
+
+    <div class="background-overlay"></div>
+    
+    <nav class="top-nav">
+        <div class="logo">
+            <img src="/Logo/logo.png" height="35px" width="50px" alt="logo">
+             Flavour Fusion
+        </div>
+    <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="favorites.html">Favorites ❤️</a></li>
+            <li><a href="order.html">Order Online 🛵</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="themeToggleBtn">Light Mode</button></li>
+        </ul>
+    </nav>
+    
+    <header class="hero-section glass-panel">
+        <h1 class="main-title">Flavour Fusion</h1>
+        <p style="margin-bottom: 2rem; color: #e2e8f0; font-size: 1.1rem;">Pick a craving and let's start cooking.</p>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" class="input-box" placeholder="🔍 Search any recipe (e.g., Dosa, Biryani)...">
+        </div>
+
+        <div class="category-filters" id="categoryBox">
+            <button class="chip active" data-filter="All">All</button>
+            <button class="chip" data-filter="Veg">Veg</button>
+            <button class="chip" data-filter="Non-Veg">Non-Veg</button>
+            <button class="chip" data-filter="South Indian">South Indian</button>
+            <button class="chip" data-filter="Italian">Italian</button>
+            <button class="chip" data-filter="Chinese">Chinese</button>
+            <button class="chip" data-filter="2 Minute Snacks">2 Minute Snacks</button>
+            <button class="chip" data-filter="High Protein">High Protein</button>
+            <button class="chip" data-filter="Desserts">Desserts</button>
+        </div>
+    </header>
+    
+    <main>
+        <div id="recipeContainer" class="recipe-wrapper"></div> 
+    </main>
+
+    <!-- <section class="fridge-section glass-panel">
+        <h2 style="color: #ff9f43; font-size: 2rem;">Got leftovers?</h2>
+        <p style="color: #e2e8f0; margin-top: 0.5rem;">Tell us what's in your fridge, and we'll filter the recipes above to match!</p>
+        <div class="fridge-input-wrapper">
+            <span style="font-size: 1.5rem;">🧊</span>
+            <input type="text" id="fridgeInput" placeholder="Type ingredients separated by commas (e.g., chicken, tomato)">
+        </div>
+    </section> -->
+    <footer class="site-footer glass-panel">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>🔥 Flavour Fusion</h2>
+                <p>Bringing authentic recipes, quick snacks, and rich desserts straight to your screen. Enter your ingredients, and let's start cooking!</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="favorites.html">My Favorites</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/flavourfusion_chitkara/" target="_blank">📸 Instagram</a>
+                    <a href="mailto:flavourfusion.chitkara@gmail.com" target="_blank">📧 E-mail</a>
+                    <a href="https://www.facebook.com/share/1RVPqSEqEy/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Flavour Fusion. Built with ❤️ by Prince Dhillon, Piyush Verma, and Paras Walia.</p>
+        </div>
+    </footer>
+
+    <script src="/js/theme.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

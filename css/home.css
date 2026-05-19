@@ -1,0 +1,34 @@
+.hero-section {
+    text-align: center; padding: 3rem 2rem; margin: 2rem auto; max-width: 900px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.main-title { font-size: 3.5rem; margin-bottom: 0.5rem; color: #ff9f43; }
+
+.search-container { display: flex; justify-content: center; margin-bottom: 2rem; }
+.input-box {
+    width: 90%; max-width: 600px; padding: 1rem 1.5rem;
+    border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.6); color: white; font-size: 1.1rem; outline: none; transition: 0.3s;
+}
+.input-box:focus { border-color: #ff9f43; background: rgba(0,0,0,0.8); }
+
+.category-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+.chip {
+    padding: 0.5rem 1.2rem; border-radius: 20px; background: rgba(255, 255, 255, 0.1);
+    color: white; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; transition: 0.3s;
+}
+.chip:hover, .chip.active { background: #ff9f43; border-color: #ff9f43; transform: translateY(-3px); color: #111; font-weight: bold;}
+
+/* Fridge Section at Bottom */
+.fridge-section {
+    margin: 4rem auto; max-width: 800px; text-align: center; padding: 3rem;
+    border-top: 1px solid rgba(255,159,67,0.3);
+}
+.fridge-input-wrapper {
+    display: flex; align-items: center; gap: 1rem; width: 100%; max-width: 600px; margin: 1.5rem auto 0;
+    background: rgba(0,0,0,0.6); padding: 1rem 1.5rem; border-radius: 30px; border: 1px solid rgba(255,159,67,0.5);
+}
+.fridge-input-wrapper input {
+    background: transparent; border: none; color: white; outline: none; width: 100%; font-size: 1.1rem;
+}
